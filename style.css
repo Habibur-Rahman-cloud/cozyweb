@@ -1,0 +1,77 @@
+/* style.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    scroll-behavior: smooth;
+}
+
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    visibility: hidden;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, visibility;
+}
+
+.fade-in-visible {
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #fffaf7; 
+}
+::-webkit-scrollbar-thumb {
+    background: #e9a8bc; 
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #d68fa5; 
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent; 
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #e9a8bc; 
+    border-radius: 3px;
+}
+
+/* Modal transitions */
+.modal-content {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Loader */
+#loader {
+    transition: opacity 0.5s ease;
+}
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid #fae3e9;
+    border-radius: 50%;
+    border-top-color: #e9a8bc;
+    animation: spin 1s ease-in-out infinite;
+}
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Space card hover effects */
+.space-card:hover .space-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+.space-icon {
+    transition: transform 0.3s ease;
+}

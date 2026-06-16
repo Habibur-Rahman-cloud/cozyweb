@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cozy - Find your people</title>
+    <link rel="icon" href="data:,">
+    <!-- Tailwind CSS (via CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                    },
+                    colors: {
+                        cozy: {
+                            bg: '#fffaf7',
+                            text: '#4a3b32',
+                            textlight: '#7b6b61',
+                            pink: '#e9a8bc',
+                            pinkdark: '#d68fa5',
+                            card: '#ffffff',
+                            lounge: '#fef3e9',
+                            night: '#f1e5fa',
+                            study: '#e6f5ea',
+                            dev: '#e0f2f9',
+                            gaming: '#fae3e9',
+                            anime: '#fcecf2',
+                            art: '#fef1e3',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-cozy-bg text-cozy-text font-sans antialiased overflow-x-hidden selection:bg-cozy-pink selection:text-white">
+
+    <!-- Loading Screen -->
+    <div id="loader" class="fixed inset-0 bg-cozy-bg flex items-center justify-center z-[9999]">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300 backdrop-blur-md bg-white/70 border-b border-cozy-text/5">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="assets/logo.png" alt="Cozy Logo" class="w-10 h-10 object-contain drop-shadow-sm">
+                <span class="text-xl font-bold tracking-wide lowercase">cozy</span>
+            </div>
+            <div class="hidden md:flex gap-8 text-sm font-bold text-cozy-textlight">
+                <a href="#features" class="hover:text-cozy-pink transition lowercase">features</a>
+                <a href="#spaces" class="hover:text-cozy-pink transition lowercase">spaces</a>
+                <a href="#download" class="hover:text-cozy-pink transition lowercase">download</a>
+                <a href="#faq" class="hover:text-cozy-pink transition lowercase">faq</a>
+            </div>
+            <a href="#download" class="bg-cozy-pink hover:bg-cozy-pinkdark text-white px-5 py-2 rounded-full text-sm font-bold transition shadow-md shadow-cozy-pink/30 lowercase">
+                get app
+            </a>
+        </div>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 flex flex-col items-center text-center max-w-4xl mx-auto fade-in-section">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cozy-pink/10 text-cozy-pinkdark text-sm font-bold mb-8 lowercase">
+            <span class="w-2 h-2 rounded-full bg-cozy-pink animate-pulse"></span>
+            android beta available now
+        </div>
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight lowercase">
+            find your people. <br>
+            <span class="text-cozy-pink">join cozy conversations.</span>
+        </h1>
+        <p class="text-lg md:text-xl text-cozy-textlight mb-10 max-w-2xl font-medium lowercase">
+            your cozy corner of the internet. discover vibrant community spaces, meet new friends, and take conversations private in a soft, minimal environment.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+            <a id="hero-download-btn" href="#" download class="px-8 py-4 rounded-full bg-cozy-pink hover:bg-cozy-pinkdark text-white font-bold text-lg transition shadow-lg shadow-cozy-pink/30 flex items-center justify-center gap-2 lowercase">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                download apk
+            </a>
+            <a href="#older-versions" class="px-8 py-4 rounded-full bg-white hover:bg-gray-50 text-cozy-text font-bold text-lg transition shadow-sm flex items-center justify-center lowercase">
+                view older versions
+            </a>
+        </div>
+        <p class="text-sm text-cozy-textlight mt-6 flex items-center justify-center gap-2 font-medium lowercase">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            verified safe & secure
+        </p>
+    </section>
+
+    <!-- 2. Features Section -->
+    <section id="features" class="py-20 px-6 max-w-7xl mx-auto fade-in-section">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-4 lowercase">why cozy?</h2>
+            <p class="text-cozy-textlight max-w-2xl mx-auto font-medium lowercase">everything you need for a better chatting experience, designed to feel just right.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Feature Card 1 -->
+            <div class="bg-white shadow-sm p-8 rounded-[2rem] hover:-translate-y-1 transition group">
+                <div class="w-14 h-14 bg-cozy-lounge rounded-full flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition text-[#e6a86c]"><i class="ph-fill ph-globe"></i></div>
+                <h3 class="text-xl font-bold mb-3 lowercase">community spaces</h3>
+                <p class="text-cozy-textlight font-medium leading-relaxed lowercase">join public rooms tailored to your interests. connect with people who share your passions instantly.</p>
+            </div>
+            <!-- Feature Card 2 -->
+            <div class="bg-white shadow-sm p-8 rounded-[2rem] hover:-translate-y-1 transition group">
+                <div class="w-14 h-14 bg-cozy-night rounded-full flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition text-[#9f60d6]"><i class="ph-fill ph-chat-circle-text"></i></div>
+                <h3 class="text-xl font-bold mb-3 lowercase">private chat</h3>
+                <p class="text-cozy-textlight font-medium leading-relaxed lowercase">take the conversation 1-on-1. send friend requests and chat privately with your new connections.</p>
+            </div>
+            <!-- Feature Card 3 -->
+            <div class="bg-white shadow-sm p-8 rounded-[2rem] hover:-translate-y-1 transition group">
+                <div class="w-14 h-14 bg-cozy-study rounded-full flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition text-[#409c69]"><i class="ph-fill ph-sparkle"></i></div>
+                <h3 class="text-xl font-bold mb-3 lowercase">friend discovery</h3>
+                <p class="text-cozy-textlight font-medium leading-relaxed lowercase">easily find and add people from community spaces to build your own personal cozy network.</p>
+            </div>
+            <!-- Feature Card 4 -->
+            <div class="bg-white shadow-sm p-8 rounded-[2rem] hover:-translate-y-1 transition group">
+                <div class="w-14 h-14 bg-cozy-dev rounded-full flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition text-[#4a9ac2]"><i class="ph-fill ph-lightning"></i></div>
+                <h3 class="text-xl font-bold mb-3 lowercase">real-time messaging</h3>
+                <p class="text-cozy-textlight font-medium leading-relaxed lowercase">fast, fluid, and real-time message delivery to keep the conversation flowing naturally.</p>
+            </div>
+            <!-- Feature Card 5 -->
+            <div class="bg-white shadow-sm p-8 rounded-[2rem] hover:-translate-y-1 transition group">
+                <div class="w-14 h-14 bg-cozy-gaming rounded-full flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition text-[#d16b8b]"><i class="ph-fill ph-palette"></i></div>
+                <h3 class="text-xl font-bold mb-3 lowercase">minimal design</h3>
+                <p class="text-cozy-textlight font-medium leading-relaxed lowercase">a soft, uncluttered UI that lets you focus on what matters most—the conversation.</p>
+            </div>
+            <!-- Feature Card 6 -->
+            <div class="bg-white shadow-sm p-8 rounded-[2rem] hover:-translate-y-1 transition group">
+                <div class="w-14 h-14 bg-cozy-anime rounded-full flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition text-[#d48eaf]"><i class="ph-fill ph-shield-check"></i></div>
+                <h3 class="text-xl font-bold mb-3 lowercase">safe environment</h3>
+                <p class="text-cozy-textlight font-medium leading-relaxed lowercase">secure user accounts and active moderation to ensure a peaceful and welcoming community.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Spaces Showcase -->
+    <section id="spaces" class="py-20 px-6 fade-in-section">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-4 lowercase">discover spaces</h2>
+                <p class="text-cozy-textlight max-w-2xl mx-auto font-medium lowercase">a room for every mood. jump into a space and say hello.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <div class="space-card bg-cozy-lounge rounded-[2rem] p-6 flex flex-col gap-3 hover:-translate-y-1 transition cursor-default">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-2xl space-icon shadow-sm text-[#c49260]"><i class="ph-fill ph-coffee"></i></div>
+                        <div>
+                            <div class="font-bold text-lg lowercase">main lounge</div>
+                            <div class="text-sm text-cozy-textlight font-medium lowercase">the main gathering place.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-card bg-cozy-night rounded-[2rem] p-6 flex flex-col gap-3 hover:-translate-y-1 transition cursor-default">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-2xl space-icon shadow-sm text-[#9f60d6]"><i class="ph-fill ph-moon"></i></div>
+                        <div>
+                            <div class="font-bold text-lg lowercase">late night</div>
+                            <div class="text-sm text-cozy-textlight font-medium lowercase">chill conversations after dark.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-card bg-cozy-study rounded-[2rem] p-6 flex flex-col gap-3 hover:-translate-y-1 transition cursor-default">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-2xl space-icon shadow-sm text-[#409c69]"><i class="ph-fill ph-books"></i></div>
+                        <div>
+                            <div class="font-bold text-lg lowercase">study</div>
+                            <div class="text-sm text-cozy-textlight font-medium lowercase">learn and grow together.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-card bg-cozy-dev rounded-[2rem] p-6 flex flex-col gap-3 hover:-translate-y-1 transition cursor-default">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-2xl space-icon shadow-sm text-[#4a9ac2]"><i class="ph-fill ph-laptop"></i></div>
+                        <div>
+                            <div class="font-bold text-lg lowercase">developers</div>
+                            <div class="text-sm text-cozy-textlight font-medium lowercase">coding, tech and startups.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-card bg-cozy-gaming rounded-[2rem] p-6 flex flex-col gap-3 hover:-translate-y-1 transition cursor-default">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-2xl space-icon shadow-sm text-[#d16b8b]"><i class="ph-fill ph-game-controller"></i></div>
+                        <div>
+                            <div class="font-bold text-lg lowercase">gaming</div>
+                            <div class="text-sm text-cozy-textlight font-medium lowercase">games, esports and fun.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-card bg-cozy-anime rounded-[2rem] p-6 flex flex-col gap-3 hover:-translate-y-1 transition cursor-default">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-2xl space-icon shadow-sm text-[#d48eaf]"><i class="ph-fill ph-flower"></i></div>
+                        <div>
+                            <div class="font-bold text-lg lowercase">anime</div>
+                            <div class="text-sm text-cozy-textlight font-medium lowercase">watch parties & manga</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. App Screenshots -->
+    <section id="screenshots" class="py-20 px-6 fade-in-section overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-4 lowercase">take a look inside</h2>
+                <p class="text-cozy-textlight max-w-2xl mx-auto font-medium lowercase">a soft and minimal interface designed for comfortable conversations.</p>
+            </div>
+            
+            <div class="relative w-full max-w-3xl mx-auto h-[450px] md:h-[600px] flex justify-center items-center" id="screenshot-carousel">
+                <!-- Injected via JS -->
+            </div>
+
+            <p class="text-center text-sm text-cozy-textlight mt-12 lowercase">click any screenshot to bring it to focus</p>
+        </div>
+    </section>
+
+    <!-- 5. Download Section -->
+    <section id="download" class="py-20 px-6 fade-in-section">
+        <div class="max-w-4xl mx-auto bg-white rounded-[3rem] p-8 md:p-16 text-center relative overflow-hidden shadow-sm border border-cozy-text/5">
+            <div class="relative z-10">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-50 text-green-600 text-sm font-bold mb-6 lowercase">
+                    <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                    latest release
+                </div>
+                <h2 class="text-4xl md:text-5xl font-extrabold mb-6 lowercase">get cozy on android</h2>
+                
+                <div class="flex flex-wrap justify-center gap-4 md:gap-8 mb-10 text-cozy-text">
+                    <div class="bg-cozy-bg px-5 py-3 rounded-2xl">
+                        <span class="block text-xs text-cozy-textlight font-bold lowercase tracking-wider mb-1">version</span>
+                        <span id="current-version" class="font-extrabold">v0.0.0</span>
+                    </div>
+                    <div class="bg-cozy-bg px-5 py-3 rounded-2xl">
+                        <span class="block text-xs text-cozy-textlight font-bold lowercase tracking-wider mb-1">release date</span>
+                        <span id="release-date" class="font-extrabold">----</span>
+                    </div>
+                    <div class="bg-cozy-bg px-5 py-3 rounded-2xl">
+                        <span class="block text-xs text-cozy-textlight font-bold lowercase tracking-wider mb-1">file size</span>
+                        <span id="apk-size" class="font-extrabold">-- MB</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <a id="main-download-btn" href="#" download class="px-10 py-5 rounded-full bg-cozy-pink hover:bg-cozy-pinkdark text-white font-extrabold text-lg transition shadow-lg shadow-cozy-pink/30 flex items-center justify-center gap-3 w-full sm:w-auto lowercase">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                        download apk
+                    </a>
+                    <button class="view-changelog-btn px-8 py-5 rounded-full bg-cozy-bg hover:bg-gray-100 text-cozy-text font-extrabold transition w-full sm:w-auto lowercase" data-version="">
+                        view changelog
+                    </button>
+                </div>
+                
+                <p class="text-sm text-cozy-textlight mt-8 max-w-lg mx-auto font-medium lowercase">
+                    requires android 8.0 or later. by downloading, you agree to our terms of service. note: you may need to allow "install from unknown sources".
+                </p>
+                <p class="text-xs text-cozy-pink mt-4 font-bold lowercase">over 5,000+ cozy downloads</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Older Versions Section -->
+    <section id="older-versions" class="py-20 px-6 max-w-4xl mx-auto fade-in-section">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-extrabold mb-4 lowercase">older versions</h2>
+            <p class="text-cozy-textlight font-medium lowercase">need a previous release? find all older builds here.</p>
+        </div>
+        <div id="older-versions-container" class="flex flex-col gap-4">
+            <!-- Populated dynamically via JS -->
+        </div>
+    </section>
+
+    <!-- 8. FAQ Section -->
+    <section id="faq" class="py-20 px-6 max-w-3xl mx-auto fade-in-section">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-4 lowercase">frequently asked questions</h2>
+        </div>
+        <div class="space-y-4">
+            <!-- FAQ 1 -->
+            <div class="bg-white shadow-sm rounded-3xl overflow-hidden">
+                <button class="faq-btn w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none">
+                    <span class="font-extrabold text-lg lowercase">is cozy free?</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon h-5 w-5 text-cozy-pink transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="faq-content px-8 text-cozy-textlight font-medium max-h-0 overflow-hidden transition-all duration-300 ease-in-out lowercase">
+                    <div class="pb-6">yes! cozy is completely free to download and use. we believe connecting with communities should be accessible to everyone.</div>
+                </div>
+            </div>
+            <!-- FAQ 2 -->
+            <div class="bg-white shadow-sm rounded-3xl overflow-hidden">
+                <button class="faq-btn w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none">
+                    <span class="font-extrabold text-lg lowercase">is cozy available on play store?</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon h-5 w-5 text-cozy-pink transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="faq-content px-8 text-cozy-textlight font-medium max-h-0 overflow-hidden transition-all duration-300 ease-in-out lowercase">
+                    <div class="pb-6">not yet. we are currently in early beta, distributing the apk directly from this website. a google play store release is planned for the future.</div>
+                </div>
+            </div>
+            <!-- FAQ 3 -->
+            <div class="bg-white shadow-sm rounded-3xl overflow-hidden">
+                <button class="faq-btn w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none">
+                    <span class="font-extrabold text-lg lowercase">how do i update?</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon h-5 w-5 text-cozy-pink transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="faq-content px-8 text-cozy-textlight font-medium max-h-0 overflow-hidden transition-all duration-300 ease-in-out lowercase">
+                    <div class="pb-6">simply visit this website and download the latest apk file. installing it will overwrite your current version without losing your data. we recommend checking back regularly!</div>
+                </div>
+            </div>
+            <!-- FAQ 4 -->
+            <div class="bg-white shadow-sm rounded-3xl overflow-hidden">
+                <button class="faq-btn w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none">
+                    <span class="font-extrabold text-lg lowercase">are messages real-time?</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon h-5 w-5 text-cozy-pink transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="faq-content px-8 text-cozy-textlight font-medium max-h-0 overflow-hidden transition-all duration-300 ease-in-out lowercase">
+                    <div class="pb-6">absolutely. cozy uses websockets to ensure your messages in both public spaces and private chats are delivered instantly.</div>
+                </div>
+            </div>
+            <!-- FAQ 5 -->
+            <div class="bg-white shadow-sm rounded-3xl overflow-hidden">
+                <button class="faq-btn w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none">
+                    <span class="font-extrabold text-lg lowercase">is my account secure?</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon h-5 w-5 text-cozy-pink transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="faq-content px-8 text-cozy-textlight font-medium max-h-0 overflow-hidden transition-all duration-300 ease-in-out lowercase">
+                    <div class="pb-6">yes. we use modern encryption standards for passwords and secure authentication tokens to keep your account safe. we prioritize your privacy and safety above all.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Footer -->
+    <footer class="mt-20 py-12 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col items-center gap-6">
+            <div class="flex items-center gap-3">
+                <img src="assets/logo.png" alt="Cozy Logo" class="w-10 h-10 object-contain drop-shadow-sm">
+                <span class="text-xl font-extrabold tracking-wide lowercase">cozy</span>
+            </div>
+            
+            <div class="flex gap-6 text-cozy-textlight font-bold lowercase">
+                <a href="mailto:hello@cozyapp.com" class="hover:text-cozy-pink transition">hello@cozyapp.com</a>
+                <a href="https://www.instagram.com/joincozyapp/" target="_blank" class="hover:text-cozy-pink transition">instagram</a>
+            </div>
+            
+            <div class="mt-4 text-center text-cozy-textlight/60 font-medium text-sm flex flex-col gap-2 lowercase">
+                <div class="flex gap-4 justify-center">
+                    <a href="#" class="hover:text-cozy-pink transition">privacy policy</a>
+                    <a href="#" class="hover:text-cozy-pink transition">terms of service</a>
+                </div>
+                <p>&copy; 2026 cozy app. all rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 7. Changelog Modal -->
+    <div id="changelog-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div id="modal-overlay" class="absolute inset-0 bg-cozy-text/20 backdrop-blur-sm"></div>
+        
+        <div class="modal-content relative bg-cozy-bg rounded-[3rem] w-full max-w-lg shadow-2xl scale-95 translate-y-4 max-h-[85vh] flex flex-col border border-cozy-text/5 overflow-hidden">
+            <div class="flex justify-between items-center p-8 bg-white border-b border-cozy-text/5">
+                <h3 id="modal-version" class="text-2xl font-extrabold lowercase">changelog</h3>
+                <button id="close-modal-btn" class="text-cozy-textlight hover:text-cozy-pink transition p-2 rounded-full hover:bg-cozy-bg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="p-8 overflow-y-auto custom-scrollbar flex-1 bg-cozy-bg">
+                <!-- Features -->
+                <div id="modal-features-container" class="mb-8">
+                    <h4 class="text-sm font-extrabold text-green-500 lowercase tracking-wider mb-4 flex items-center gap-2"><span class="text-lg">✨</span> new features</h4>
+                    <ul id="modal-features" class="space-y-3 text-cozy-text font-medium"></ul>
+                </div>
+                
+                <!-- Improvements -->
+                <div id="modal-improvements-container" class="mb-8">
+                    <h4 class="text-sm font-extrabold text-blue-500 lowercase tracking-wider mb-4 flex items-center gap-2"><span class="text-lg">🚀</span> improvements</h4>
+                    <ul id="modal-improvements" class="space-y-3 text-cozy-text font-medium"></ul>
+                </div>
+                
+                <!-- Bug Fixes -->
+                <div id="modal-fixes-container">
+                    <h4 class="text-sm font-extrabold text-orange-500 lowercase tracking-wider mb-4 flex items-center gap-2"><span class="text-lg">🐛</span> bug fixes</h4>
+                    <ul id="modal-fixes" class="space-y-3 text-cozy-text font-medium"></ul>
+                </div>
+            </div>
+            <div class="p-6 bg-white border-t border-cozy-text/5 flex justify-end">
+                <button onclick="document.getElementById('close-modal-btn').click()" class="px-8 py-3 rounded-full bg-cozy-bg hover:bg-gray-100 text-cozy-text font-extrabold transition lowercase">
+                    close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
