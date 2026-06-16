@@ -1,0 +1,5 @@
+# Ignore APK and ZIP files - host these separately
+*.apk
+*.zip
+cozy-latest-v1/
+downloads/
