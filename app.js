@@ -3,7 +3,7 @@
 const versions = [
     {
         version: "v1.0.1",
-        apk: "cozy-latest-v1/cozy-latest-v1.zip",
+        apk: "https://drive.google.com/file/d/1Sa07t0dJ4qaXgdCRaCp7B0zRArVXMBKd/view?usp=sharing",
         size: "25.9 MB",
         date: "2026-06-20",
         changelog: {
@@ -44,6 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const heroDownloadBtn = document.getElementById('hero-download-btn');
     if(heroDownloadBtn) {
         heroDownloadBtn.href = latestVersion.apk;
+        heroDownloadBtn.target = '_blank';
+        heroDownloadBtn.removeAttribute('download');
     }
 
     // Populate Main Download Section
@@ -56,7 +58,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if(currentVersionEl) currentVersionEl.textContent = latestVersion.version;
     if(releaseDateEl) releaseDateEl.textContent = latestVersion.date;
     if(apkSizeEl) apkSizeEl.textContent = latestVersion.size;
-    if(mainDownloadBtn) mainDownloadBtn.href = latestVersion.apk;
+    if(mainDownloadBtn) {
+        mainDownloadBtn.href = latestVersion.apk;
+        mainDownloadBtn.target = '_blank';
+        mainDownloadBtn.removeAttribute('download');
+    }
     if(mainChangelogBtn) mainChangelogBtn.dataset.version = latestVersion.version;
 
     // Populate Older Versions
@@ -72,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
                 <div class="flex gap-3 w-full sm:w-auto">
                     <button class="view-changelog-btn text-sm font-bold px-6 py-3 rounded-full bg-cozy-bg hover:bg-gray-100 text-cozy-text transition flex-1 sm:flex-none lowercase" data-version="${ver.version}">changelog</button>
-                    <a href="${ver.apk}" download class="text-sm font-bold px-6 py-3 rounded-full bg-cozy-pink hover:bg-cozy-pinkdark text-white transition flex items-center justify-center gap-2 flex-1 sm:flex-none lowercase">
+                    <a href="${ver.apk}" target="_blank" class="text-sm font-bold px-6 py-3 rounded-full bg-cozy-pink hover:bg-cozy-pinkdark text-white transition flex items-center justify-center gap-2 flex-1 sm:flex-none lowercase">
                         download
                     </a>
                 </div>
