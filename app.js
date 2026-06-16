@@ -3,8 +3,8 @@
 const versions = [
     {
         version: "v1.0.1",
-        apk: "cozy-latest-v1/cozy-latest-v1.apk",
-        size: "55.2 MB",
+        apk: "cozy-latest-v1/cozy-latest-v1.zip",
+        size: "25.9 MB",
         date: "2026-06-20",
         changelog: {
             features: ["Added dark mode toggle in profile", "New 'Gaming' community space"],
