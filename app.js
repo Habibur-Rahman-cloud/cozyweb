@@ -3,7 +3,6 @@
 const versions = [
     {
         version: "v1.0.1",
-        apk: "https://drive.google.com/file/d/1Sa07t0dJ4qaXgdCRaCp7B0zRArVXMBKd/view?usp=sharing",
         size: "25.9 MB",
         date: "2026-06-20",
         changelog: {
@@ -14,7 +13,6 @@ const versions = [
     },
     {
         version: "v1.0.0",
-        apk: "downloads/cozy-v1.0.0.apk",
         size: "18.0 MB",
         date: "2026-06-15",
         changelog: {
@@ -25,7 +23,6 @@ const versions = [
     },
     {
         version: "v0.9.0",
-        apk: "downloads/cozy-v0.9.0.apk",
         size: "16.5 MB",
         date: "2026-06-01",
         changelog: {
@@ -40,29 +37,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const latestVersion = versions[0];
     const olderVersions = versions.slice(1);
 
-    // Populate Hero Download button
-    const heroDownloadBtn = document.getElementById('hero-download-btn');
-    if(heroDownloadBtn) {
-        heroDownloadBtn.href = latestVersion.apk;
-        heroDownloadBtn.target = '_blank';
-        heroDownloadBtn.removeAttribute('download');
-    }
-
-    // Populate Main Download Section
+    // Populate Main Release Info
     const currentVersionEl = document.getElementById('current-version');
     const releaseDateEl = document.getElementById('release-date');
     const apkSizeEl = document.getElementById('apk-size');
-    const mainDownloadBtn = document.getElementById('main-download-btn');
     const mainChangelogBtn = document.querySelector('#download .view-changelog-btn');
 
     if(currentVersionEl) currentVersionEl.textContent = latestVersion.version;
     if(releaseDateEl) releaseDateEl.textContent = latestVersion.date;
     if(apkSizeEl) apkSizeEl.textContent = latestVersion.size;
-    if(mainDownloadBtn) {
-        mainDownloadBtn.href = latestVersion.apk;
-        mainDownloadBtn.target = '_blank';
-        mainDownloadBtn.removeAttribute('download');
-    }
     if(mainChangelogBtn) mainChangelogBtn.dataset.version = latestVersion.version;
 
     // Populate Older Versions
@@ -78,9 +61,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
                 <div class="flex gap-3 w-full sm:w-auto">
                     <button class="view-changelog-btn text-sm font-bold px-6 py-3 rounded-full bg-cozy-bg hover:bg-gray-100 text-cozy-text transition flex-1 sm:flex-none lowercase" data-version="${ver.version}">changelog</button>
-                    <a href="${ver.apk}" target="_blank" class="text-sm font-bold px-6 py-3 rounded-full bg-cozy-pink hover:bg-cozy-pinkdark text-white transition flex items-center justify-center gap-2 flex-1 sm:flex-none lowercase">
-                        download
-                    </a>
                 </div>
             `;
             olderVersionsContainer.appendChild(card);
